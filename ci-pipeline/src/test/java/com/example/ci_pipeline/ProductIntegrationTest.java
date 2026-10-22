@@ -1,4 +1,4 @@
-﻿package com.example.ci_pipeline;
+package com.example.ci_pipeline;
 
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
