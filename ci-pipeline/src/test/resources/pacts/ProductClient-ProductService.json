@@ -1,0 +1,41 @@
+{
+  "provider": {
+    "name": "ProductService"
+  },
+  "consumer": {
+    "name": "ProductClient"
+  },
+  "interactions": [
+    {
+      "description": "a request for product 1",
+      "providerStates": [
+        {
+          "name": "product 1 exists"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/api/products/1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 1,
+          "name": "Keyboard",
+          "price": 49.99
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    },
+    "pact-jvm": {
+      "version": "4.7.0"
+    }
+  }
+}

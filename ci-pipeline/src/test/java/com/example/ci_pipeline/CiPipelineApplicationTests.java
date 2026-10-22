@@ -1,0 +1,15 @@
+package com.example.ci_pipeline;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
+
+@Import(TestcontainersConfiguration.class)
+@SpringBootTest
+class CiPipelineApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
