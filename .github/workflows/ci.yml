@@ -1,4 +1,4 @@
-name: CI
+name: CI and container publishing
 
 on:
   push:
@@ -23,8 +23,10 @@ jobs:
           distribution: temurin
           java-version: '21'
           cache: maven
+          cache-dependency-path: ci-pipeline/pom.xml
 
       - name: Build and run tests
+        working-directory: ci-pipeline
         run: bash ./mvnw --batch-mode --no-transfer-progress verify
 
   publish-image:
@@ -62,7 +64,8 @@ jobs:
       - name: Build and publish image
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./ci-pipeline
+          file: ./ci-pipeline/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
